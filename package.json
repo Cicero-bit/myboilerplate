@@ -1,16 +1,17 @@
 {
   "name": "boilerplate",
   "version": "1.0.0",
-  "main": "bundle.js",
+  "main": ".src/main.js",
   "scripts": {
     "babel": "babel ./main.js -o ./bundle.js --presets=@babel/env -w",
-    "loadweb": "webpack -w"
+    "dev": "webpack -w"
   },
   "keywords": [
     "boilerplate"
   ],
   "author": "cicero",
   "license": "ISC",
+  "type": "commonjs",
   "description": "personal project involving apis, dates, crud etc...",
   "devDependencies": {
     "@babel/cli": "^7.26.4",
@@ -22,6 +23,9 @@
     "webpack-cli": "^6.0.1"
   },
   "dependencies": {
-    "regenerator-runtime": "^0.14.1"
+    "core.js": "^0.4.2",
+    "css-loader": "^7.1.2",
+    "regenerator-runtime": "^0.14.1",
+    "style-loader": "^4.0.0"
   }
 }
