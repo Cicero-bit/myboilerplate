@@ -1,18 +1,16 @@
 const express = require('express')
 const app = express();
+const routes = require('./routes');
+const path = require('path')
+const port = 3000
 
 app.use(express.urlencoded({extended: true}));
+app.use(routes);
 
-app.get('/', (req , res) => {
-    res.send("olá usuario")
-});
+app.set('views', path.resolve(__dirname, 'src', 'views'));
+app.set('view engine', 'ejs');
 
 
-app.get('/testes/:userid?', (req, res) => {
-    console.log(req.params.userid);
-    res.send('hi');
-})
-
-app.listen(5959, (e) => [
-    console.log('server starting at port 5959')
+app.listen(port, (e) => [
+    console.log(`server starting at port ${port} http://localhost:${port}`)
 ]);
