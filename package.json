@@ -5,7 +5,7 @@
   "scripts": {
     "babel": "babel ./main.js -o ./bundle.js --presets=@babel/env -w",
     "dev": "webpack -w",
-    "server": "npx nodemon server.js"
+    "server": "npx nodemon server.js --ignore public --ignore frontend"
   },
   "keywords": [
     "boilerplate"
@@ -27,8 +27,10 @@
   "dependencies": {
     "core.js": "^0.4.2",
     "css-loader": "^7.1.2",
+    "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
+    "mongoose": "^8.12.1",
     "regenerator-runtime": "^0.14.1",
     "style-loader": "^4.0.0"
   }
