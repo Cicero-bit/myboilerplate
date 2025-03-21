@@ -1,0 +1,49 @@
+<%- include('includes/header'); %>
+<%- include('includes/nav'); %>
+
+<div class="card text-center">
+  <div class="card-header">
+    CRUD
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Bem Vindo</h5>
+    <p class="card-text">Preencha seus dados de login</p>
+    <form action="/login" method="post" style="width: 60%; margin: 0 auto;">
+      <div class="input-group flex-nowrap" style="padding-bottom: 20px;">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="addon-wrapping">✉️</span>
+        </div>
+        <input type="text" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="addon-wrapping" name="email">
+      </div>
+      <div class="input-group flex-nowrap" style="padding-bottom: 20px;">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="addon-wrapping">🔒</span>
+        </div>
+        <input type="password" class="form-control" placeholder="Senha" aria-label="Username" aria-describedby="addon-wrapping" name="password">
+      </div>
+      <div><a href="" class="btn btn-primary">Login</a> <a href="">Não tenho conta</a></div>
+    </form>
+    <form action="register" method="post" style="width: 60%; margin: 0 auto;  visibility: collapse; display: none;">
+      <div class="input-group flex-nowrap" style="padding-bottom: 20px;">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="addon-wrapping">✉️</span>
+        </div>
+        <input type="text" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="addon-wrapping" name="email">
+      </div>
+      <div class="input-group flex-nowrap" style="padding-bottom: 20px;">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="addon-wrapping">🔒</span>
+        </div>
+        <input type="text" class="form-control" placeholder="Senha" aria-label="Username" aria-describedby="addon-wrapping" name="password">
+      </div>
+      <a href="#" class="btn btn-primary">Register</a>
+    </form>
+    
+  </div>
+
+</div>
+
+
+<%- include('includes/footer'); %>
+
+
