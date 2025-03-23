@@ -8,22 +8,24 @@
   <div class="card-body">
     <h5 class="card-title">Bem Vindo</h5>
     <p class="card-text">Preencha seus dados de login</p>
-    <form action="/login" method="post" style="width: 60%; margin: 0 auto;">
+    <form action="/login/login" method="post" style="width: 60%; margin: 0 auto; visibility: visible; display: block;">
+      <input type="hidden" name="_csrf" value=<%=csrfToken%>>
       <div class="input-group flex-nowrap" style="padding-bottom: 20px;">
         <div class="input-group-prepend">
           <span class="input-group-text" id="addon-wrapping">✉️</span>
         </div>
-        <input type="text" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="addon-wrapping" name="email">
+        <input type="email" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="addon-wrapping" name="email">
       </div>
       <div class="input-group flex-nowrap" style="padding-bottom: 20px;">
         <div class="input-group-prepend">
           <span class="input-group-text" id="addon-wrapping">🔒</span>
         </div>
-        <input type="password" class="form-control" placeholder="Senha" aria-label="Username" aria-describedby="addon-wrapping" name="password">
+        <input type="text" class="form-control" placeholder="Senha" aria-label="Username" aria-describedby="addon-wrapping" name="password">
       </div>
-      <div><a href="" class="btn btn-primary">Login</a> <a href="">Não tenho conta</a></div>
+      <div><button class="btn btn-primary">Login</button> <a href="" style="padding-left: 30px;">Não tenho conta</a></div>
     </form>
-    <form action="register" method="post" style="width: 60%; margin: 0 auto;  visibility: collapse; display: none;">
+    <form action="/login/register" method="post" style="width: 60%; margin: 0 auto;  visibility: visible; display: block;">
+      <input type="hidden" name="_csrf" value=<%=csrfToken%>>
       <div class="input-group flex-nowrap" style="padding-bottom: 20px;">
         <div class="input-group-prepend">
           <span class="input-group-text" id="addon-wrapping">✉️</span>
@@ -36,7 +38,7 @@
         </div>
         <input type="text" class="form-control" placeholder="Senha" aria-label="Username" aria-describedby="addon-wrapping" name="password">
       </div>
-      <a href="#" class="btn btn-primary">Register</a>
+      <button class="btn btn-primary">Register</button>
     </form>
     
   </div>
