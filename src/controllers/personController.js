@@ -3,5 +3,5 @@ exports.personRender = (req, res) => {
 }
 
 exports.create = (req, res) => {
-    res.send('hi')
+    res.send('hi');
 }
