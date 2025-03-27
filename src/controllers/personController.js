@@ -4,9 +4,14 @@ exports.personRender = (req, res) => {
     res.render('person');
 }
 
-exports.create = (req, res) => {
-    const person = new PersonModel(req.body);
-    person.bdCreate;
-    console.log(person.person);
-    res.redirect('/')
+exports.create = async (req, res) => {
+    try{
+        const person = new PersonModel(req.body);
+        await person.bdCreate();
+        console.log(person);
+        res.redirect('/')
+    } catch(e) {
+        console.log(e);
+    }
+    
 }

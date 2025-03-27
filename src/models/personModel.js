@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
-const bcryptjs = require('bcryptjs');
-const { constructor } = require('core.js');
 
 const PersonSchema = new mongoose.Schema({
     name: {type: String, required: false, default: 'nome'},
@@ -26,9 +24,7 @@ class Person{
 
     async bdCreate(){
         this.cleanUp();
-        console.log(this)
         this.person = await PersonModel.create(this.body);
-        console.log(this)
     }
 
     cleanUp(){
@@ -40,6 +36,7 @@ class Person{
         
         this.body = {
             name: 'skibidi name',
+            password: this.body.password,
             email: this.body.email,
             cpf: this.body.cpf,
             phone: this.body.phone,
@@ -51,5 +48,4 @@ class Person{
 
 }
 
-
-module.exports = PersonModel;
+module.exports = Person;
