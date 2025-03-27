@@ -13,10 +13,10 @@ route.post('/login/login', logincontroller.login);
 route.get('/logout', logincontroller.logout);
 
 //person
-route.get('/person/create', personController.personRender);
+route.get('/person', personController.personRender);
 route.post('/person/create', personController.create);
 
 
 
 
-module.exports = route; 
+module.exports = route;
