@@ -22,6 +22,11 @@ class Person{
         this.person = null;
     }
 
+
+    async findbyid(id){
+        this.person = await PersonModel.findById(id);
+    }
+
     async bdCreate(){
         this.cleanUp();
         this.person = await PersonModel.create(this.body);

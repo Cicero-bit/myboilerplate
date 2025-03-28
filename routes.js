@@ -15,6 +15,7 @@ route.get('/logout', logincontroller.logout);
 //person
 route.get('/person', personController.personRender);
 route.post('/person/create', personController.create);
+route.get('/person/edit/:id', personController.edit);
 
 
 
