@@ -1,20 +1,29 @@
 <%- include('includes/header'); %>
 <%- include('includes/nav'); %>
 
-<div class="list-group">
-  <a href="/person" type="button" class="btn btn-secondary btn-lg btn-block">Criar Pessoa</a>
-  <div class="list-group-item list-group-item-action">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">Nome Usario</h5>
-      <small>criado a dias atras</small>
+
+<body>
+  
+<a href="/person" type="button" class="btn btn-secondary btn-lg btn-block" style="width: 80%; margin: 1%; display: inline; align-self: center;">Criar Pessoa</a>
+
+<% persons.forEach(person => { %>
+    <div class="list-group">
+      <div class="list-group-item list-group-item-action">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1"><%= person.name %></h5>
+          <small><%= person.createdDate %></small>
+        </div>
+        <div class="d-flex w-100 justify-content-between">
+          <p class="mb-2"><%= person.email %></p>
+          <a href="/person/edit/<%= person.id %>" style="background-color: lightblue; color: white">EDIT</a>
+          <a href="/person/delete/<%= person.id %>" style="background-color: red; color: white;">DELETE</a>
+        </div>
+        <small><%= person.phone %></small>
+      </div>
     </div>
-    <div class="d-flex w-100 justify-content-between">
-      <p class="mb-1">email usuario</p>
-      <button>botão modificar</button>
-    </div>
-    <small>alguma informação extra do usuario</small>
-  </div>
-</div>
+<% }) %>
+
+</body>
 
 <%- include('includes/footer'); %>
 

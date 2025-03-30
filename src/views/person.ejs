@@ -3,30 +3,35 @@
 
 
 <div style="padding: 5% 20% ">
-<form method="post" action="/person/create">
+
+<% if (!person.person._id) { %>
+  <form method="post" action="/person/create">
+<% } else { %>
+  <form method="post" action="/person/process/<%= person.person._id %>">
+<% } %>
   <input type="hidden" name="_csrf" value=<%= csrfToken %>>
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="inputEmail4">Email</label>
-        <input type="email" class="form-control" id="inputEmail4" name="email">
+        <input value="<%= person.person.email %>" type="email" class="form-control" id="inputEmail4" name="email">
       </div>
       <div class="form-group col-md-6">
         <label for="inputPassword4">Password</label>
-        <input type="password" class="form-control" id="inputPassword4" name="password">
+        <input value="<%= person.person.password %>" type="password" class="form-control" id="inputPassword4" name="password">
       </div>
     </div>
     <div class="form-group">
       <label for="inputAddress">CPF</label>
-      <input type="text" class="form-control" id="inputAddress" placeholder="Apenas números" name="cpf">
+      <input value="<%= person.person.cpf %>" class="form-control" id="inputAddress" placeholder="Apenas números" name="cpf">
     </div>
     <div class="form-group">
       <label for="inputAddress2">Celular</label>
-      <input type="text" class="form-control" id="inputAddress2" placeholder="Apenas números" name="phone">
+      <input value="<%= person.person.phone %>" type="phone" class="form-control" id="inputAddress2" placeholder="Apenas números" name="phone">
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="inputCity">Nascimento</label>
-        <input type="date" class="form-control" id="inputCity" name="birthdate">
+        <input value="<%= person.person.birthdate %>" type="date" class="form-control" id="inputCity" name="birthdate">
       </div>
       <div class="form-group col-md-6">
         <label for="inputState">Sexo</label>
@@ -46,7 +51,12 @@
         </label>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary">Create</button>
+    <button type="submit" class="btn btn-primary"><% if (!person.person._id) { %>
+    <%= "Create" %> 
+    <% } else { %>
+    <%= "Update" %>
+    <% } %>
+    </button>
   </form>
 </div>
 

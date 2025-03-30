@@ -1,7 +1,35 @@
 const PersonModel = require('../models/personModel')
 
 exports.personRender = (req, res) => {
-    res.render('person');
+    res.render('person', {
+        person: {
+            person: {}  
+        }
+    });
+}
+
+exports.delete = async (req, res) => {
+    try {
+        const person = new PersonModel();
+        const status = await person.delete(req.params.id);
+        res.redirect('/');
+    } catch (error) {
+        console.log(error);
+        res.redirect('404')
+    }
+}
+
+exports.process = async (req, res) => {
+    try {
+        if(!req.params.id) return res.render('404');
+        const user = new PersonModel(req.body);
+        await user.edit(req.params.id);
+        res.redirect('/');  
+    } catch (error) {
+        console.log(error);
+        res.render('404')
+    }
+
 }
 
 exports.create = async (req, res) => {

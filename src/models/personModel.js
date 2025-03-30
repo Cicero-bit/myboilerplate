@@ -22,6 +22,25 @@ class Person{
         this.person = null;
     }
 
+    async delete(id){
+        const person = await PersonModel.findByIdAndDelete({_id: id});
+        return person;
+    }
+
+
+    async list(){
+        const persons = await PersonModel.find()
+            .sort({createdDate: -1});
+        return persons;
+    }
+
+
+    async edit(id){
+        if(typeof id !== 'string') return;
+        this.cleanUp();
+        this.person = await PersonModel.findByIdAndUpdate(id, this.body, { new: true});
+    }
+
 
     async findbyid(id){
         this.person = await PersonModel.findById(id);
