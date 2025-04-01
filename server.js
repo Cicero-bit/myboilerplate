@@ -1,6 +1,6 @@
 //configuracao do dotenv para as variaveis de ambiente
 require('dotenv').config();
-const port = 3000
+const port = 8000
 
 //segurança do servidor contra atraque externos
 const helmet = require('helmet');
