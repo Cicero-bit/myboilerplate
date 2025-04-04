@@ -1,3 +1,1 @@
-this is a boiler plate for my projects
-
-1.0.1
+node, js, ts, express routing, helmet and csrt, webpack, using a NoSQL database, mongoDB. A CRUD for peson project
